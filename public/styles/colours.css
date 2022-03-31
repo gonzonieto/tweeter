@@ -1,0 +1,39 @@
+.pink {
+  color: #AA4465;
+}
+
+.blue {
+  color: #3581b8;
+}
+
+.yellow {
+  color: #F1BB87;
+}
+
+.cyan {
+  color: #DDFFF7;
+}
+/* old blue #4056a1 */
+.blue-green {
+  color: #93E1D8;
+}
+
+.pink-bg {
+  background-color: #AA4465;
+}
+
+.blue-bg {
+  background-color: #3581b8;
+}
+
+.yellow-bg {
+  background-color: #F1BB87;
+}
+
+.cyan-bg {
+  background-color: #DDFFF7;
+}
+
+.blue-green-bg {
+  background-color: #93E1D8;
+}

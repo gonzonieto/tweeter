@@ -1,0 +1,25 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: steelblue;
+  padding-top: 50px;
+  padding-left: 1.5em;
+  color: #FFFFFF;
+  display: flex;
+  padding-right: 1.5em;
+  justify-content: space-between;
+}  
+
+nav .nav-logo {
+  font-family: 'Bungee', cursive;
+}  
+
+nav div {
+  display: flex;
+  flex-direction: column;
+}
+
+nav i {
+  align-self: center;
+  color: #AA4465;
+}

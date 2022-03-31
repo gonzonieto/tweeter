@@ -1,0 +1,16 @@
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F1BB87;
+  background-image: url("../images/arches.png");
+}
+
+header div {
+  width: fit-content;
+}
+
+header img {
+  margin-top: 2rem;
+}
