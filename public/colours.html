@@ -20,7 +20,6 @@
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/colours.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
@@ -44,14 +43,16 @@
 
 <body>
   <main>
-    <div class="box" style="border:3px solid black;flex-direction:column">
-      <div class="box pink-bg" style="width:100%;">Pink #AA4465</div>
-      <div class="box blue-bg" style="width:100%;">Blue #3581B8</div>
-      <div class="box yellow-bg" style="color:black;width:100%;">Yellow #F1BB87</div>
-      <div class="box cyan-bg" style="color:black;width:100%;">Cyan #DDFFF7</div>
-      <div class="box blue-green-bg" style="color:black;width:100%;">Blue-Green #93E1D8</div>
+    <div style="display:flex;justify-content: center;">
+      <div class="box" style="border:3px solid black;flex-direction:column;width:80%;max-width: 50%;">
+        <div class="box" style="background-color:var(--pink);width:100%;">Pink</div>
+        <div class="box" style="background-color:var(--blue);width:100%;">Blue</div>
+        <div class="box" style="background-color:var(--yellow);color:black;width:100%;">Yellow</div>
+        <div class="box" style="background-color:var(--cyan);color:black;width:100%;">Cyan</div>
+        <div class="box" style="background-color:var(--blue-green);color:black;width:100%;">Blue-Green</div>
+        <div class="box" style="background-color:var(--brown);width:100%;">Brown</div>
+      </div>
     </div>
-
   </main>
 </body>
 
