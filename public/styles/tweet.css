@@ -1,0 +1,50 @@
+.tweet {
+  border: 2px solid black;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 0rem 0rem;
+}
+
+.tweet > header, footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tweet > header {
+  padding: 0rem 0rem;
+  align-items: center;
+}
+
+.tweet header > i {
+  font-size: 1.7rem;
+  margin-right: 0rem;
+}
+
+#handle {
+  margin-left: auto;
+  color: darkgray;
+}
+
+.tweet > p {
+  margin: 0;
+  padding: 0rem 0rem;
+}
+
+.tweet > footer {
+  padding: 0rem 0rem;
+  border-top: 2px solid black;
+}
+
+.tweet footer > span {
+  font-size: 1.2rem;
+  margin-right: auto;
+}
+
+.tweet footer > i {
+  font-size: 1.3rem;
+  margin-left: 0rem;
+}
+
+.tweet footer > i:hover {
+  color: var(--pink);
+}

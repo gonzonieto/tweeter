@@ -2,9 +2,9 @@ nav {
   height: 120px;
   width: 100%;
   background-color: steelblue;
-  padding-top: 50px;
+  padding-top: 2.9rem;
   padding-left: 1.5em;
-  color: #FFFFFF;
+  color: var(--white);
   display: flex;
   padding-right: 1.5em;
   justify-content: space-between;

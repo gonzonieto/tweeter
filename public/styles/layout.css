@@ -8,19 +8,29 @@ html {
   box-sizing: inherit;
 }
 
+:root {
+  --pink: #AA4465;
+  --blue: #3581b8;
+  --yellow: #F1BB87;
+  --cyan: #DDFFF7;
+  --blue-green: #93E1D8;
+  --white: #F4F1EC;
+  --brown: #422800;
+}
+
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: var(--brown);
+  background-color: var(--white);
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
 }
 
 main {
   width: 86%;
-  margin: 1rem auto;
-  background-color: #f4f1ec;
+  margin: 1.8rem auto;
+  background-color: var(--white);
 }
 
-main:hover {
+main > *:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
