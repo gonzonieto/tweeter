@@ -20,13 +20,14 @@
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/colours.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </head>
 
 <body>
@@ -47,12 +48,32 @@
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form action="/tweets/" method="post">
-        <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-        <div>
-          <button type="submit">Tweet</button>
+        <div style="display:flex" class="tweet-text-box">
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
+        <button class="rainbow_text_animated" role="button" type="submit">
+          <span>Tweet</span>
+        </button>
       </form>
+    </section>
+    <section id="tweets-container">
+      <article class="tweet">
+        <header>
+          <i class="fa-solid fa-user-large"></i>
+          <span>Newton</span>
+          <span id="handle">@SirIsaac</span>
+        </header>
+        <p>
+          If I have seen further it is by standing on the shoulders of giants.
+        </p>
+        <footer>
+          <span id="date">10 days ago</span>
+          <i class="fa-solid fa-thumbs-up"></i>
+          <i class="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart"></i>
+        </footer>
+      </article>
     </section>
   </main>
 </body>

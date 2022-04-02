@@ -10,7 +10,3 @@ body > header {
 header div {
   width: fit-content;
 }
-
-header img {
-  margin-top: 2rem;
-}
