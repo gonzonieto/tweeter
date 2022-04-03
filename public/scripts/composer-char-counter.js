@@ -1,8 +1,7 @@
 $(document).ready(function() {
-  console.log('Script is loading');
   const style = getComputedStyle(document.body);
 
-  $(".new-tweet form textarea").on("input", function(e) {
+  $("#tweet-text").on("input", function(e) {
     const counter = this.nextElementSibling;
     const charCount = 140 - this.value.length;
     counter.value = charCount;
