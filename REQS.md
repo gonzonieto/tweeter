@@ -52,16 +52,16 @@
 
 *   [x] When a user submits an invalid tweet (the tweet `textarea` is empty or contains more than 140 characters), an appropriate error message is displayed
 
-*   [ ] When a user submits a valid tweet, the list of tweets is refreshed (displaying the new tweet), the Compose Tweet `textarea` is cleared, and the Character Counter is reset (to 140)
+*   [x] When a user submits a valid tweet, the list of tweets is refreshed (displaying the new tweet), the Compose Tweet `textarea` is cleared, and the Character Counter is reset (to 140)
 
 ### Stretch
 
 #### Navigation Bar
 
-*   [ ] When a user clicks the Compose button in the Navigation Bar:
-    *   [ ] if the Compose Tweet box is currently hidden, then it is shown, and the `textarea` inside it is auto-focused
-    *   [ ] if the Compose Tweet box is currently showing, then it is hidden
-    *   [ ] in either case, transitions between 'shown' and 'hidden' states should be animated
+*   [x] When a user clicks the Compose button in the Navigation Bar:
+    *   [x] if the Compose Tweet box is currently hidden, then it is shown, and the `textarea` inside it is auto-focused
+    *   [x] if the Compose Tweet box is currently showing, then it is hidden
+    *   [x] in either case, transitions between 'shown' and 'hidden' states should be animated
 
 #### Second Toggle Button
 
