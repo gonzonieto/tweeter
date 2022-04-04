@@ -17,8 +17,17 @@ Tweeter is a simple, single-page Twitter clone.
 - [Chance](https://www.npmjs.com/package/chance)
 - [MD5](https://www.npmjs.com/package/md5)
 
-## Images & Videos
+## Responsive Design
+### Desktop 
+![](docs/tweeter-desktop-view.png)
 
+### Tablet
+![](docs/tweeter-tablet-vertical-view.png)
+
+### Mobile
+![](docs/tweeter-mobile-view.png)
+
+## Animations
 ### Colour animation on button `:hover`
 ![](docs/tweeter-button-colour-animation.gif)
 
@@ -27,4 +36,3 @@ Tweeter is a simple, single-page Twitter clone.
 
 ### Error messages for bad input
 ![](docs/tweeter-error-animation.gif)
-
