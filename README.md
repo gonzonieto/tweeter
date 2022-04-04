@@ -18,3 +18,5 @@ Tweeter is a simple, single-page Twitter clone.
 - [MD5](https://www.npmjs.com/package/md5)
 
 ## Images & Videos
+
+![](https://github.com/gonzonieto/tweeter/blob/master/docs/tweeter-box-shadow-animation.mov)
