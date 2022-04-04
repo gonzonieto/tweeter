@@ -23,7 +23,6 @@ $(document).ready(() => {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
   const createTweetElement = (td) => {
     const avatar = escape(td.user.avatars);
     const name = escape(td.user.name);
@@ -55,16 +54,71 @@ $(document).ready(() => {
       .forEach(tweetElement => $('#tweets-container').append(tweetElement));
   };
 
+  const newTweetBox = $('.new-tweet');
   const tweetForm = $('.new-tweet > form');
 
+  // textarea of new tweet form
+  const tweet = $("#tweet-text");
+
+  tweet.focus((e) => {
+    if ($('.error').length) {
+      $('.error').slideToggle({
+        duration: 'slow',
+        start: () => {
+          $('#tweet-text').css({ 'box-shadow': '0 0 0 0', 'transition': '0.6s' });
+        },
+        done: () => {
+          $('.error').remove();
+        }
+      });
+    }
+  });
+
+  // $('#tweet-text').css({ 'box-shadow': '0 0 0 0', 'transition': '0.3s' });
+
   tweetForm.submit((e) => {
-    const tweet = $("#tweet-text").val().trim();
     const tc = $('#tweets-container')[0];
     e.preventDefault();
     
+    // Creating template warning element
+    const warning = $(`<div class="error" style="display:none;">
+    <strong>Error!</strong>
+    <p></p>
+  </div>`);
+
     // Validation -- Reject empty input and input over 140 characters
-    if (tweet.length > 140) return alert('Tweets cannot exceed 140 characters! Anything longer is technically considered a "squawk" and is not permitted by our Terms of Service.');
-    if (!tweet.length)      return alert('You must have something to say before you can say something.');
+    if (tweet.val().trim().length > 140) {
+      if (!$('.error').length) {
+        warning[0].lastElementChild.innerText = 'Tweets cannot exceed 140 characters! Anything longer is technically considered a "squawk" and is not permitted by our Terms of Service.';
+        newTweetBox[0].insertBefore(warning[0], newTweetBox[0].firstElementChild);
+        
+        $('.error').slideToggle({
+          duration: 'slow',
+          start: () => {
+            $('#tweet-text').css({ 'box-shadow': 'rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px', 'transition': '0.4s' });
+            $('.error').css('display', 'flex');
+          }
+        });
+      }
+      return;
+    }
+    if (!tweet.val().trim().length) {
+      if (!$('.error').length) {
+        warning[0].lastElementChild.innerText = 'You must have something to say before you can say something.';
+        newTweetBox[0].insertBefore(warning[0], newTweetBox[0].firstElementChild);
+        
+        $('.error').slideToggle({
+          duration: 'slow',
+          start: () => {
+            $('#tweet-text').css({ 'box-shadow': 'rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px', 'transition': '0.4s' });
+            $('.error').css({ 'display': 'flex' });
+          }
+        });
+      }
+      return;
+    }
+
+
     
     $.post("/tweets", tweetForm.serialize());
     
