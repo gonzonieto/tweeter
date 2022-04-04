@@ -19,4 +19,12 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Images & Videos
 
-![](https://github.com/gonzonieto/tweeter/blob/master/docs/tweeter-box-shadow-animation.mov)
+### Colour animation on button `:hover`
+![](docs/tweeter-button-colour-animation.gif)
+
+### Box shadow animation on `:hover`
+![](docs/tweeter-box-shadow-animation.gif)
+
+### Error messages for bad input
+![](docs/tweeter-error-animation.gif)
+
