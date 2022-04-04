@@ -32,7 +32,7 @@
   border-left: 0;
   border-top: 0;
   border-right: 0;
-  border-bottom: 2px solid #3581b8;
+  border-bottom: 2px solid var(--blue);
   resize: none;
   background-color: var(--white);
 }
@@ -42,7 +42,7 @@
 }
 
 #tweet-text:focus {
-  border-bottom: 3px solid #3581b8;
+  border-bottom: 3px solid var(--blue);
 }
 
 .new-tweet button {

@@ -54,3 +54,7 @@
   color: var(--pink);
   transition: 0.3s;
 }
+
+.clicked {
+  color: var(--yellow);
+}

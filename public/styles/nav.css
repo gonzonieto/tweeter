@@ -2,7 +2,7 @@ nav {
   position:fixed;
   height: 7.2rem;
   width: 100%;
-  background-color: steelblue;
+  background-color: var(--blue);
   padding-top: 2.9rem;
   padding-left: 1.5em;
   color: var(--white);
@@ -24,5 +24,20 @@ nav div {
 
 nav i {
   align-self: center;
-  color: #AA4465;
+  color: var(--pink);
+}
+
+/* Styling for icon bounce */
+.bounce {
+  position: relative;
+  -moz-animation: bounce 0.9s infinite linear;
+  -o-animation: bounce 0.9s infinite linear;
+  -webkit-animation: bounce 0.9s infinite linear;
+  animation: bounce 0.9s infinite linear;
+}
+@keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
 }
