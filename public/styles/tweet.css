@@ -1,8 +1,13 @@
+#tweets-container {
+  margin: 0rem 3rem 0rem 3rem;
+}
+
 .tweet {
-  border: 2px solid black;
-  width: 100%;
-  margin: 1rem auto;
-  padding: 0rem 0rem;
+  border-radius: 5px 15px 22px 5px;
+  border: 1px solid lightgray;
+  padding: 1rem 1.8rem 1rem 1.8rem;
+  margin-top:1.4rem;
+  word-wrap: break-word;
 }
 
 .tweet > header, footer {
@@ -11,13 +16,12 @@
 }
 
 .tweet > header {
-  padding: 0rem 0rem;
+  padding-bottom: 0rem;
   align-items: center;
 }
 
-.tweet header > i {
-  font-size: 1.7rem;
-  margin-right: 0rem;
+.tweet img {
+  margin: 0rem 0.7rem 0.5rem 0rem;
 }
 
 #handle {
@@ -31,7 +35,7 @@
 }
 
 .tweet > footer {
-  padding: 0rem 0rem;
+  padding-top: 0.6rem;
   border-top: 2px solid black;
 }
 
@@ -42,9 +46,11 @@
 
 .tweet footer > i {
   font-size: 1.3rem;
-  margin-left: 0rem;
+  transition: 0.3s;
+  margin-left: 0.7rem;
 }
 
 .tweet footer > i:hover {
   color: var(--pink);
+  transition: 0.3s;
 }
