@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  // Makes a GET request to /tweets/ and returns the array of tweets
+  // Makes a GET request to /tweets/, returns the array of tweets
   const loadTweets = ((last = false) => {
     $.ajax('/tweets/', { method: 'GET' })
       .then((tweets) => {
@@ -12,14 +12,17 @@ $(document).ready(() => {
         renderTweets(tweets);
       });
   });
+
   // Render existing tweets as soon as possible in the page load sequence.
   loadTweets();
   
-  const escape = function (str) {
+  // Escaping strings to be used for generating each tweet, to prevent cross-site scripting
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
+
   const createTweetElement = (td) => {
     const avatar = escape(td.user.avatars);
     const name = escape(td.user.name);
@@ -45,6 +48,7 @@ $(document).ready(() => {
     </article>`);
     return $tweet;
   };
+
   const renderTweets = (tweets) => {
     tweets
       .map(tweetData => createTweetElement(tweetData))
@@ -59,7 +63,10 @@ $(document).ready(() => {
 
   $('nav div').click(e => {
     $('.new-tweet').slideToggle('slow', () => {
+      // This ensures the bounce effect doesn't invert on click and remain active when mouse is not hovering
       $('nav i').removeClass('bounce');
+
+      // Set text on right side of navbar based on the visibility state of the new tweet box
       if ($('.new-tweet').is(':visible')) {
         $('nav div span').html('<strong>Read</strong> some tweets.');
         $("html, body").animate({ scrollTop: $(".new-tweet").offset().top - $('nav').height() - 15 }, 950);
@@ -68,7 +75,6 @@ $(document).ready(() => {
       }
     });
   });
-  // $("html, body").animate({ scrollTop: $("#tweets-container").offset().top - $('nav')[0].scrollHeight }, 1500);
 
   // Bounce the icon in the navbar on hover
   $('nav div').hover(e => {
@@ -80,7 +86,11 @@ $(document).ready(() => {
     if ($('.error').length) {
       $('.error').slideToggle({
         duration: 'slow',
-        start: () => $('#tweet-text').css({ 'box-shadow': '0 0 0 0', 'transition': '0.6s', 'margin': '0px 0px' }),
+        start: () => $('#tweet-text').css({
+          'box-shadow': '0 0 0 0',
+          'transition': '0.6s',
+          'margin': '0px 0px'
+        }),
         done: () => {
           $('.new-tweet h2').slideToggle('slow');
           $('.error').remove();
@@ -89,22 +99,17 @@ $(document).ready(() => {
     }
   });
 
-  // Toggle clicked state for icons in #tweets-container
-  // NOT SURE WHY THIS ISN'T WORKING, SINCE IT WORKS AS INTENDED WHEN PASTED INTO CHROME DEV TOOLS
-  // $('#tweets-container i').click(e => {
-  //   console.log(e.target);
-  //   $(e.target).toggleClass('clicked');
-  // });
-
   tweetForm.submit(e => {
     const tc = $('#tweets-container')[0];
     e.preventDefault();
     
-    // Creating template warning element
-    const warning = $(`<div class="error" style="display:none;">
-    <strong>Error!</strong>
-    <p></p>
-  </div>`);
+    // Template for warning element
+    const warning = $(
+      `<div class="error" style="display:none;">
+        <strong>Error!</strong>
+        <p></p>
+      </div>`
+    );
 
     // Validation -- Reject empty input and input over 140 characters
     if (tweet.val().trim().length > 140) {
@@ -115,7 +120,11 @@ $(document).ready(() => {
         $('.error').slideToggle({
           duration: 'slow',
           start: () => {
-            $('#tweet-text').css({ 'box-shadow': 'rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px', 'transition': '0.4s', 'margin': '15px 0px' });
+            $('#tweet-text').css({
+              'box-shadow': 'rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px',
+              'transition': '0.4s',
+              'margin': '15px 0px'
+            });
             $('.error').css('display', 'flex');
             $('.new-tweet h2').slideToggle('slow');
           }
@@ -123,6 +132,7 @@ $(document).ready(() => {
       }
       return;
     }
+
     if (!tweet.val().trim().length) {
       if (!$('.error').length) {
         warning[0].lastElementChild.innerText = 'You must have something to say before you can say something.';
@@ -131,7 +141,11 @@ $(document).ready(() => {
         $('.error').slideToggle({
           duration: 'slow',
           start: () => {
-            $('#tweet-text').css({ 'box-shadow': 'rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px', 'transition': '0.4s', 'margin': '15px 0px' });
+            $('#tweet-text').css({
+              'box-shadow': 'rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px',
+              'transition': '0.4s',
+              'margin': '15px 0px'
+            });
             $('.error').css({ 'display': 'flex' });
             $('.new-tweet h2').slideToggle('slow');
           }
@@ -146,6 +160,7 @@ $(document).ready(() => {
     $('#tweet-text').val('');
     $('.counter').val(140);
 
+    // When a tweet is submitted, scroll page so the new tweet is the first thing shown below the navbar
     $("html, body").animate({ scrollTop: $("#tweets-container").offset().top - $('nav')[0].scrollHeight }, 1500);
   });
 });
