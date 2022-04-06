@@ -19,17 +19,21 @@ $(document).ready(() => {
   // Escaping strings to be used for generating each tweet, to prevent cross-site scripting
   const escape = function(str) {
     let div = document.createElement("div");
+    // Document.createTextNode() escapes text without needing an external library
+    // See https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
   const createTweetElement = (td) => {
+    // Creating variables for readability and escaping each string to be inserted into the tweet element
     const avatar = escape(td.user.avatars);
     const name = escape(td.user.name);
     const handle = escape(td.user.handle);
     const text = escape(td.content.text);
     const timestamp = escape(td.created_at);
 
+    // Populating HTML template tweet
     const $tweet = $(`<article class="tweet">
     <header>
       <img src="${avatar}"></img>
@@ -46,11 +50,13 @@ $(document).ready(() => {
       <i class="fa-solid fa-heart"></i>
     </footer>
     </article>`);
+
     return $tweet;
   };
 
   const renderTweets = (tweets) => {
     tweets
+      // From the array of tweet data, make an array of HTML tweet elements and prepend each one to the tweets container
       .map(tweetData => createTweetElement(tweetData))
       .forEach(tweetElement => $('#tweets-container').prepend(tweetElement));
   };
@@ -60,7 +66,7 @@ $(document).ready(() => {
   // textarea of form for new tweets
   const tweet = $("#tweet-text");
 
-
+  // On click effects for right-hand navbar button
   $('nav div').click(e => {
     $('.new-tweet').slideToggle('slow', () => {
       // This ensures the bounce effect doesn't invert on click and remain active when mouse is not hovering
@@ -99,6 +105,7 @@ $(document).ready(() => {
     }
   });
 
+  // On submission of tweet form
   tweetForm.submit(e => {
     const tc = $('#tweets-container')[0];
     e.preventDefault();
@@ -114,9 +121,12 @@ $(document).ready(() => {
     // Validation -- Reject empty input and input over 140 characters
     if (tweet.val().trim().length > 140) {
       if (!$('.error').length) {
+        // Set appropriate warning text
         warning[0].lastElementChild.innerText = 'Tweets cannot exceed 140 characters! Anything longer is technically considered a "squawk" and is not permitted by our Terms of Service.';
+        // Insert the warning element before the new tweet box
         newTweetBox[0].insertBefore(warning[0], newTweetBox[0].firstElementChild);
         
+        // Animation for displaying the error
         $('.error').slideToggle({
           duration: 'slow',
           start: () => {
@@ -135,9 +145,12 @@ $(document).ready(() => {
 
     if (!tweet.val().trim().length) {
       if (!$('.error').length) {
+        // Set appropriate warning text
         warning[0].lastElementChild.innerText = 'You must have something to say before you can say something.';
+        // Insert the warning element before the new tweet box
         newTweetBox[0].insertBefore(warning[0], newTweetBox[0].firstElementChild);
         
+        // Animation for displaying the error
         $('.error').slideToggle({
           duration: 'slow',
           start: () => {
