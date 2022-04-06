@@ -8,7 +8,7 @@ $(document).ready(() => {
           return;
         }
         // Sort so the newest tweet is displayed first
-        tweets.sort((a,b) => b.created_at - a.created_at);
+        tweets.sort((a,b) => a.created_at - b.created_at);
         renderTweets(tweets);
       });
   });
