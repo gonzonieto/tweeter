@@ -4,10 +4,20 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Objectives
 
-- use jQuery as much as possible when manipulating DOM elements
+- use jQuery to manipulate DOM elements
 - implement CSS transitions and animations, both with raw CSS and with jQuery
 - sanitize user input to protect against cross-site scripting
 - implement error handling and user warnings
+
+## Setup
+
+To set up Tweeter, follow these instructions:
+
+- have [`npm`](https://www.npmjs.com/) installed
+- clone this repo to your machine
+- install dependencies with `npm install`
+- run the server with `npm run local`
+- once the server is running, you can visit your Tweeter instance at `http://localhost:8080/`
 
 ## Dependencies
 
